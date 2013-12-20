@@ -36,16 +36,11 @@ token = auth_json.get("access").get("token").get("id")
 account = auth_json.get("access").get("token").get("tenant").get("id")
 
 #URLs for each DC
-dc_url = {'dfw':'https://dfw.servers.api.rackspacecloud.com/v2/' + account +\
-          '/servers/detail', 
-          'hkg':'https://hkg.servers.api.rackspacecloud.com/v2/' + account +\
-          '/servers/detail',
-          'iad':'https://iad.servers.api.rackspacecloud.com/v2/' + account +\
-          '/servers/detail',
-          'ord':'https://ord.servers.api.rackspacecloud.com/v2/' + account +\
-          '/servers/detail',
-          'syd':'https://syd.servers.api.rackspacecloud.com/v2/' + account +\
-          '/servers/detail'}
+dc_url = {}
+for cp in auth_json.get("access").get("serviceCatalog"):
+    if cp['name'] == 'cloudServersOpenStack':
+        for ep in cp['endpoints']:
+            dc_url[ep['region'].lower()] = ep['publicURL']
 
 #header dict for auth token
 auth_header = {'X-Auth-Token': token}
@@ -85,7 +80,7 @@ while control:
     else:
         control = True
 
-server_json = serverlist(dc_url.get(dc_choice), auth_header)
+server_json = serverlist(dc_url.get(dc_choice) + '/servers', auth_header)
 
 #Creating table with PrettyTable package
 table = prettytable.PrettyTable(["Server Name", "UUID"])
