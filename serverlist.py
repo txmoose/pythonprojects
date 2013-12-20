@@ -65,7 +65,8 @@ print "[dfw, hkg, iad, ord, syd]"
 dc_choice = raw_input().lower()
 
 #if initial input is valid, this will bypass the while loop
-if dc_choice == 'dfw' or 'hkg' or 'iad' or 'ord' or 'syd':
+if dc_choice == 'dfw' or dc_choice == 'hkg' or dc_choice == 'iad' or\
+   dc_choice == 'ord' or dc_choice == 'syd':
     control = False
 else:
     control = True
@@ -78,7 +79,8 @@ while control:
     print "[dfw, hkg, iad, ord, syd]"
     dc_choice = raw_input().lower()
 
-    if dc_choice == 'dfw' or 'hkg' or 'iad' or 'ord' or 'syd':
+    if dc_choice == 'dfw' or dc_choice == 'hkg' or dc_choice == 'iad' or\
+       dc_choice == 'ord' or dc_choice == 'syd':
         control = False
     else:
         control = True
