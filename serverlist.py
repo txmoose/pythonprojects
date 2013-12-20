@@ -58,15 +58,30 @@ def serverlist(servers_url, auth_header):
     
     server_json = json.loads(result)
     return server_json
+
 #getting DC from user
-while True:
+print "Which DC do you want servers from?"
+print "[dfw, hkg, iad, ord, syd]"
+dc_choice = raw_input().lower()
+
+#if initial input is valid, this will bypass the while loop
+if dc_choice == 'dfw' or 'hkg' or 'iad' or 'ord' or 'syd':
+    control = False
+else:
+    control = True
+
+#if initial input is invalid, this will loop until it IS valid
+while control:
+    print "That's not a valid answer, please try again."
+
     print "Which DC do you want servers from?"
     print "[dfw, hkg, iad, ord, syd]"
     dc_choice = raw_input().lower()
+
     if dc_choice == 'dfw' or 'hkg' or 'iad' or 'ord' or 'syd':
-        break
+        control = False
     else:
-        print "That's not a valid answer, please try again."
+        control = True
 
 server_json = serverlist(dc_url.get(dc_choice), auth_header)
 
