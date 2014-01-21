@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Learning to use argparse"""
+"""Learning to use argparse with mutually exclusive options"""
 
 import argparse
 
