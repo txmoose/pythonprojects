@@ -2,7 +2,7 @@
 """
 Author:     Kyle Brieden
 Date:       31 Jan 14
-Updated:    31 Jan 14
+Updated:     1 Feb 14
 Purpose:    practice problem - Fizz Buzz
 
 Prompt:     Write a program that accepts a number from the user with proper
