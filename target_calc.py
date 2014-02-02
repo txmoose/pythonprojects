@@ -43,11 +43,11 @@ def check_list(lst, tgt):
         for y in lst[x:]:
             if lst[x] + y == tgt:
                 answers.append('{} + {} = {}'.format(lst[x], y, tgt))
-    if len(lst) == 0:
-        return answers.append(
-                'No values in the list can be added to attain {}'.format(tgt))
-    else:
-        return answers
+    if len(answers) == 0:
+        answers.append('No values in the list can be added to '
+                       'attain {}'.format(tgt))
+    
+    return answers
 
 
 def main():
