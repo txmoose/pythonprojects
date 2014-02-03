@@ -46,7 +46,7 @@ def check_list(lst, tgt):
     if len(answers) == 0:
         answers.append('No values in the list can be added to '
                        'attain {}'.format(tgt))
-    
+
     return answers
 
 
